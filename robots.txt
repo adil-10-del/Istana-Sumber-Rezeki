@@ -2,4 +2,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://USERNAME.github.io/galeri-roster/sitemap.xml
+Sitemap: https://USERNAME.github.io/Istana-Sumber-Rezeki/sitemap.xml
+
