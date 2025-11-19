@@ -2,6 +2,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://USERNAME.github.com/Istana-Sumber-Rezeki/sitemap.xml
+Sitemap: https://adil-10-del.github.io/Istana-Sumber-Rezeki/sitemap.xml
+
 
 
