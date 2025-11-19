@@ -1,0 +1,5 @@
+{"id":"59102","variant":"standard"}
+User-agent: *
+Allow: /
+
+Sitemap: https://USERNAME.github.io/galeri-roster/sitemap.xml
