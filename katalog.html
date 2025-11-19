@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Katalog Produk - Galeri Roster</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .catalog-container {
+      width: 90%;
+      margin: 40px auto;
+    }
+
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      gap: 10px;
+    }
+
+    .search-bar input {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      width: 250px;
+    }
+
+    .category-filter {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .category-filter button {
+      background: #184850;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .category-filter button.active,
+    .category-filter button:hover {
+      background: #06d6a0;
+      color: #000;
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .catalog-item {
+      background: #184850;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .catalog-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .catalog-item img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .catalog-item h3 {
+      color: #ffd166;
+      margin: 10px 0 5px;
+    }
+
+    .catalog-item p {
+      font-size: 0.9em;
+      color: #eee;
+    }
+
+    .catalog-item button {
+      background: #06d6a0;
+      color: #000;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 6px;
+      margin-top: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .catalog-item button:hover {
+      background: #ffd166;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Galeri Roster</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="katalog.html" class="active">Katalog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="catalog-container">
+    <h2>Katalog Produk</h2>
+
+    <div class="filter-bar">
+      <div class="category-filter">
+        <button class="active" onclick="filterCategory('all')">Semua</button>
+        <button onclick="filterCategory('roster')">Roster</button>
+        <button onclick="filterCategory('bata')">Bata</button>
+        <button onclick="filterCategory('walpanel')">Walpanel</button>
+        <button onclick="filterCategory('profil')">List Profil</button>
+        <button onclick="filterCategory('genteng')">Genteng</button>
+      </div>
+
+      <div class="search-bar">
+        <input type="text" id="searchInput" onkeyup="searchProduct()" placeholder="Cari produk...">
+      </div>
+    </div>
+
+    <div class="catalog-grid" id="catalogGrid">
+      <!-- Contoh produk (kamu bisa duplikat hingga 162 motif) -->
+      <div class="catalog-item roster">
+        <img src="assets/abu1.jpg" alt="Roster Beton 20x20 Motif 1">
+        <h3>Roster Beton 20×20 Motif 1</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ (5.0) | Terjual: 1.800</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 1')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/abu2.jpg" alt="Roster Beton 20x20 Motif 2">
+        <h3>Roster Beton 20×20 Motif 2</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 1.200</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 2')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/abu3.jpg" alt="Roster Beton 20x20 Motif 3">
+        <h3>Roster Beton 20×20 Motif 3</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.9) | Terjual: 1.500</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 3')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/merah1.jpg" alt="Roster Beton 20x20 Motif 4">
+        <h3>Roster Beton 20×20 Motif 4</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 3.390</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 4')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/merah2.jpg" alt="Roster Beton 20x20 Motif 5">
+        <h3>Roster Beton 20×20 Motif 5</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 2.492</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 5')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/Putih1.jpg" alt="Roster Beton 20x20 Motif 6">
+        <h3>Roster Beton 20×20 Motif 6</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 4399</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 6')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/putih10.jpg" alt="Roster Beton 20x20 Motif 7">
+        <h3>Roster Beton 20×20 Motif 7</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 5430</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 7')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/putih11.jpg" alt="Roster Beton 20x20 Motif 8">
+        <h3>Roster Beton 20×20 Motif 8</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ (5.0) | Terjual: 2090</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 8')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/putih12.jpg" alt="Roster Beton 20x20 Motif 9">
+        <h3>Roster Beton 20×20 Motif 9</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 4580</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 9')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/putih13.jpg" alt="Roster Beton 20x20 Motif 10  ">
+        <h3>Roster Beton 20×20 Motif 10</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ (5.0) | Terjual: 5480</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 10')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/putih14.jpg" alt="Roster Beton 20x20 Motif 11  ">
+        <h3>Roster Beton 20×20 Motif 11</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ (5.0) | Terjual: 3940</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 11')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/putih15.jpg" alt="Roster Beton 20x20 Motif 12">
+        <h3>Roster Beton 20×20 Motif 12</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 9283</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 12')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/putih16.jpg" alt="Roster Beton 20x20 Motif 13  ">
+        <h3>Roster Beton 20×20 Motif 13</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 4900</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 13')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/putih17.jpg" alt="Roster Beton 20x20 Motif 14">
+        <h3>Roster Beton 20×20 Motif 14</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 6840</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 14')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/putih18.jpg" alt="Roster Beton 20x20 Motif 15">
+        <h3>Roster Beton 20×20 Motif 15</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 8374</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 15')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/putih19.jpg" alt="Roster Beton 20x20 Motif 16">
+        <h3>Roster Beton 20×20 Motif 16</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 9378</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 16')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/putih20.jpg" alt="Roster Beton 20x20 Motif 17">
+        <h3>Roster Beton 20×20 Motif 17</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 8430</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 17')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/putih21.jpg" alt="Roster Beton 20x20 Motif 18">
+        <h3>Roster Beton 20×20 Motif 18</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 3670</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 18')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/putih22.jpg" alt="Roster Beton 20x20 Motif 19">
+        <h3>Roster Beton 20×20 Motif 19</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 8433</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 19')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/putih23.jpg" alt="Roster Beton 20x20 Motif 20">
+        <h3>Roster Beton 20×20 Motif 20</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 6380</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 20')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/putih24.jpg" alt="Roster Beton 20x20 Motif 21">
+        <h3>Roster Beton 20×20 Motif 21</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 4760</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 21')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/putih25.jpg" alt="Roster Beton 20x20 Motif 22">
+        <h3>Roster Beton 20×20 Motif 22</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 8379</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 22')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/putih26.jpg" alt="Roster Beton 20x20 Motif 23">
+        <h3>Roster Beton 20×20 Motif 23</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 9475</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 23')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/putih27.jpg" alt="Roster Beton 20x20 Motif 24">
+        <h3>Roster Beton 20×20 Motif 24</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 8458</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 24')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/putih28.jpg" alt="Roster Beton 20x20 Motif 25">
+        <h3>Roster Beton 20×20 Motif 25</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 5722</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 25')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/putih29.jpg" alt="Roster Beton 20x20 Motif 26">
+        <h3>Roster Beton 20×20 Motif 26</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 7523</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 26')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/putih30.jpg" alt="Roster Beton 20x20 Motif 27">
+        <h3>Roster Beton 20×20 Motif 27</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 5377</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 27')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/putih31.jpg" alt="Roster Beton 20x20 Motif 28">
+        <h3>Roster Beton 20×20 Motif 28</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 7639</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 28')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/putih32.jpg" alt="Roster Beton 20x20 Motif 29">
+        <h3>Roster Beton 20×20 Motif 29</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 6258</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 29')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/putih33.jpg" alt="Roster Beton 20x20 Motif 30">
+        <h3>Roster Beton 20×20 Motif 30</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 6382</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 30')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/putih34.jpg" alt="Roster Beton 20x20 Motif 31">
+        <h3>Roster Beton 20×20 Motif 31</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 6527</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 31')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/putih35.jpg" alt="Roster Beton 20x20 Motif 32">
+        <h3>Roster Beton 20×20 Motif 32</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 9172</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 32')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/putih36.jpg" alt="Roster Beton 20x20 Motif 33">
+        <h3>Roster Beton 20×20 Motif 33</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 7382</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 33')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/Putih2.jpg" alt="Roster Beton 20x20 Motif 34">
+        <h3>Roster Beton 20×20 Motif 34</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 7529</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 34')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/Putih3.jpg" alt="Roster Beton 20x20 Motif 35">
+        <h3>Roster Beton 20×20 Motif 35</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 9432</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 35')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/Putih4.jpg" alt="Roster Beton 20x20 Motif 36">
+        <h3>Roster Beton 20×20 Motif 36</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 8622</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 36')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/Putih5.jpg" alt="Roster Beton 20x20 Motif 37">
+        <h3>Roster Beton 20×20 Motif 37</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 7291</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 37')">Beli Sekarang</button>
+      </div>
+      
+      <div class="catalog-item roster">
+        <img src="assets/Putih6.jpg" alt="Roster Beton 20x20 Motif 38">
+        <h3>Roster Beton 20×20 Motif 38</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 7632</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 38')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/putih7.jpg" alt="Roster Beton 20x20 Motif 39">
+        <h3>Roster Beton 20×20 Motif 39</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 6289</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 39')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/Putih7.jpg" alt="Roster Beton 20x20 Motif 39">
+        <h3>Roster Beton 20×20 Motif 39</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 9793</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 39')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/Putih8.jpg" alt="Roster Beton 20x20 Motif 40">
+        <h3>Roster Beton 20×20 Motif 40</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 7662</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 40')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/Putih9.jpg" alt="Roster Beton 20x20 Motif 41">
+        <h3>Roster Beton 20×20 Motif 41</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 8322</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 41')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/merah2.jpg" alt="Roster Beton 20x20 Motif 42">
+        <h3>Roster Beton 20×20 Motif 42</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 8927</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 42')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/merah1.jpg" alt="Roster Beton 20x20 Motif 43">
+        <h3>Roster Beton 20×20 Motif 43</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 6281</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 43')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/abu4.jpg" alt="Roster Beton 20x20 Motif 44">
+        <h3>Roster Beton 20×20 Motif 44</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.8) | Terjual: 8390</p>
+        <button onclick="beliProduk('Roster Beton 20×20 Motif 44')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/nako1.jpg" alt="Roster Beton Nako">
+        <h3>Roster Beton Nako</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ (5.0) | Terjual: 8273</p>
+        <button onclick="beliProduk('Roster Beton Nako')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item roster">
+        <img src="assets/Nako2.jpg" alt="Roster Beton Nako 30×15">
+        <h3>Roster Beton Nako 30×15</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ (5.0) | Terjual: 8273</p>
+        <button onclick="beliProduk('Roster Beton Nako 30×15')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item bata">
+        <img src="assets/batatempel.jpg" alt="Bata Tempel 1">
+        <h3>Bata Tempel 1</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.7) | Terjual: 36720</p>
+        <button onclick="beliProduk('Bata Tempel 1')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item bata">
+        <img src="assets/bata tempel 1.jpg" alt="Bata Tempel 2">
+        <h3>Bata Tempel 2</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.7) | Terjual: 49830</p>
+        <button onclick="beliProduk('Bata Tempel 2')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item bata">
+        <img src="assets/Bata ekspos 1.jpg" alt="Bata Ekspose 1">
+        <h3>Bata Ekspose 1</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ (5.0) | Terjual: 193900</p>
+        <button onclick="beliProduk('Bata Ekspose 1')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item bata">
+        <img src="assets/Bata ekspos 2.jpg" alt="Bata Ekspose 2">
+        <h3>Bata Ekspose 2</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ (5.0) | Terjual: 193900</p>
+        <button onclick="beliProduk('Bata Ekspose 2')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item walpanel">
+        <img src="assets/walpanel 1.jpg" alt="walpanel 1">
+        <h3>walpanel 1</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.9) | Terjual: 78290</p>
+        <button onclick="beliProduk('walpanel 1')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item walpanel">
+        <img src="assets/walpanel 2.jpg" alt="walpanel 2">
+        <h3>walpanel 2</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.9) | Terjual: 92793</p>
+        <button onclick="beliProduk('walpanel 2')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item walpanel">
+        <img src="assets/walpanel 3.jpg" alt="walpanel 3">
+        <h3>walpanel 3</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.9) | Terjual: 68290</p>
+        <button onclick="beliProduk('walpanel 3')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item walpanel">
+        <img src="assets/walpanel 4.jpg" alt="walpanel 4">
+        <h3>walpanel 4</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.9) | Terjual: 92793</p>
+        <button onclick="beliProduk('walpanel 4')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item walpanel">
+        <img src="assets/walpanel 5.jpg" alt="walpanel 5">
+        <h3>walpanel 5</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.9) | Terjual: 92793</p>
+        <button onclick="beliProduk('walpanel 5')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item walpanel">
+        <img src="assets/walpanel 6.jpg" alt="walpanel 6">
+        <h3>walpanel 6</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.9) | Terjual: 92793</p>
+        <button onclick="beliProduk('walpanel 6')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item walpanel">
+        <img src="assets/walpanel 7.jpg" alt="walpanel 7">
+        <h3>walpanel 7</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.9) | Terjual: 92793</p>
+        <button onclick="beliProduk('walpanel 7')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item walpanel">
+        <img src="assets/walpanel 8.jpg" alt="walpanel 8">
+        <h3>walpanel 8</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.9) | Terjual: 92793</p>
+        <button onclick="beliProduk('walpanel 8')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item walpanel">
+        <img src="assets/walpanel 9.jpg" alt="walpanel 9">
+        <h3>walpanel 9</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.9) | Terjual: 92793</p>
+        <button onclick="beliProduk('walpanel 9')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item walpanel">
+        <img src="assets/walpanel 10.jpg" alt="walpanel 10">
+        <h3>walpanel 10</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.9) | Terjual: 92793</p>
+        <button onclick="beliProduk('walpanel 10')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item walpanel">
+        <img src="assets/walpanel 11.jpg" alt="walpanel 11">
+        <h3>walpanel 11</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.9) | Terjual: 92793</p>
+        <button onclick="beliProduk('walpanel 11')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item walpanel">
+        <img src="assets/walpanel 12.jpg" alt="walpanel 12">
+        <h3>walpanel 12</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.9) | Terjual: 92793</p>
+        <button onclick="beliProduk('walpanel 12')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item walpanel">
+        <img src="assets/walpanel 13.jpg" alt="walpanel 13">
+        <h3>walpanel 13</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.9) | Terjual: 92793</p>
+        <button onclick="beliProduk('walpanel 13')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item walpanel">
+        <img src="assets/walpanel 14.jpg" alt="walpanel 14">
+        <h3>walpanel 14</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.9) | Terjual: 92793</p>
+        <button onclick="beliProduk('walpanel 14')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item walpanel">
+        <img src="assets/walpanel 15.jpg" alt="walpanel 15">
+        <h3>walpanel 15</h3>
+        <p>⭐️⭐️⭐️⭐️☆ (4.9) | Terjual: 92793</p>
+        <button onclick="beliProduk('walpanel 15')">Beli Sekarang</button>
+      </div>
+
+
+
+      <div class="catalog-item profil">
+        <img src="assets/list1.jpg" alt="List Profil 1">
+        <h3>List Profil 1</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ (5.0) | Terjual: 80931</p>
+        <button onclick="beliProduk('List Profil 1')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item profil">
+        <img src="assets/list2.jpg" alt="List Profil 2">
+        <h3>List Profil 2</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ (5.0) | Terjual: 80931</p>
+        <button onclick="beliProduk('List Profil 2')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item profil">
+        <img src="assets/list3.jpg" alt="List Profil 3">
+        <h3>List Profil 3</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ (5.0) | Terjual: 80931</p>
+        <button onclick="beliProduk('List Profil 3')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item profil">
+        <img src="assets/list4.jpg" alt="List Profil 4">
+        <h3>List Profil 4</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ (5.0) | Terjual: 80931</p>
+        <button onclick="beliProduk('List Profil 4')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item profil">
+        <img src="assets/list5.jpg" alt="List Profil 5">
+        <h3>List Profil 5</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ (5.0) | Terjual: 80931</p>
+        <button onclick="beliProduk('List Profil 5')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item profil">
+        <img src="assets/list6.jpg" alt="List Profil 6">
+        <h3>List Profil 6</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ (5.0) | Terjual: 80931</p>
+        <button onclick="beliProduk('List Profil 6')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item profil">
+        <img src="assets/list7.jpg" alt="List Profil 7">
+        <h3>List Profil 7</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ (5.0) | Terjual: 80931</p>
+        <button onclick="beliProduk('List Profil 7')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item profil">
+        <img src="assets/list8.jpg" alt="List Profil 8">
+        <h3>List Profil 8</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ (5.0) | Terjual: 80931</p>
+        <button onclick="beliProduk('List Profil 8')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item profil">
+        <img src="assets/list9.jpg" alt="List Profil 9">
+        <h3>List Profil 9</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ (5.0) | Terjual: 80931</p>
+        <button onclick="beliProduk('List Profil 9')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item genteng">
+        <img src="assets/genten1.jpg" alt="Genteng 1">
+        <h3>List Genteng 1</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ (5.0) | Terjual: 80931</p>
+        <button onclick="beliProduk('Genteng 1')">Beli Sekarang</button>
+      </div>
+      
+      <div class="catalog-item genteng">
+        <img src="assets/genteng2.jpg" alt="Genteng 2">
+        <h3>List Genteng 2</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ (5.0) | Terjual: 80931</p>
+        <button onclick="beliProduk('Genteng 2')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item genteng">
+        <img src="assets/genteng3.jpg" alt="Genteng 3">
+        <h3>List Genteng 3</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ (5.0) | Terjual: 80931</p>
+        <button onclick="beliProduk('Genteng 3')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item genteng">
+        <img src="assets/genteng4.jpg" alt="Genteng 4">
+        <h3>List Genteng 4</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ (5.0) | Terjual: 80931</p>
+        <button onclick="beliProduk('Genteng 4')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item genteng">
+        <img src="assets/genteng5.jpg" alt="Genteng 5">
+        <h3>List Genteng 5</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ (5.0) | Terjual: 80931</p>
+        <button onclick="beliProduk('Genteng 5')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item genteng">
+        <img src="assets/genteng6.jpg" alt="Genteng 6">
+        <h3>List Genteng 6</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ (5.0) | Terjual: 80931</p>
+        <button onclick="beliProduk('Genteng 6')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item genteng">
+        <img src="assets/genteng7.jpg" alt="Genteng 7">
+        <h3>List Genteng 7</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ (5.0) | Terjual: 80931</p>
+        <button onclick="beliProduk('Genteng 7')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item genteng">
+        <img src="assets/genteng8.jpg" alt="Genteng 8">
+        <h3>List Genteng 8</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ (5.0) | Terjual: 80931</p>
+        <button onclick="beliProduk('Genteng 8')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item genteng">
+        <img src="assets/genteng9.jpg" alt="Genteng 9">
+        <h3>List Genteng 9</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ (5.0) | Terjual: 80931</p>
+        <button onclick="beliProduk('Genteng 9')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item genteng">
+        <img src="assets/genteng10.jpg" alt="Genteng 10">
+        <h3>List Genteng 10</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ (5.0) | Terjual: 80931</p>
+        <button onclick="beliProduk('Genteng 10')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item genteng">
+        <img src="assets/genteng11.jpg" alt="Genteng 11">
+        <h3>List Genteng 11</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ (5.0) | Terjual: 80931</p>
+        <button onclick="beliProduk('Genteng 11')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item genteng">
+        <img src="assets/genteng12.jpg" alt="Genteng 12">
+        <h3>List Genteng 12</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ (5.0) | Terjual: 80931</p>
+        <button onclick="beliProduk('Genteng 12')">Beli Sekarang</button>
+      </div>
+
+      <div class="catalog-item genteng">
+        <img src="assets/genteng13.jpg" alt="Genteng 13">
+        <h3>List Genteng 13</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ (5.0) | Terjual: 80931</p>
+        <button onclick="beliProduk('Genteng 13')">Beli Sekarang</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Istana Sumber Rezeki. Semua Hak Dilindungi.</p>
+    </div>
+  </footer>
+
+  <script>
+    function filterCategory(category) {
+      const items = document.querySelectorAll(".catalog-item");
+      const buttons = document.querySelectorAll(".category-filter button");
+      buttons.forEach(btn => btn.classList.remove("active"));
+      event.target.classList.add("active");
+
+      items.forEach(item => {
+        if (category === "all" || item.classList.contains(category)) {
+          item.style.display = "block";
+        } else {
+          item.style.display = "none";
+        }
+      });
+    }
+
+    function searchProduct() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const items = document.querySelectorAll(".catalog-item");
+      items.forEach(item => {
+        const text = item.querySelector("h3").textContent.toLowerCase();
+        item.style.display = text.includes(input) ? "block" : "none";
+      });
+    }
+
+    function beliProduk(namaProduk) {
+      const nomor = "6281945821117";
+      const pesan = encodeURIComponent(`Halo, saya ingin membeli produk ${namaProduk} dari Istana Sumber Rezeki.`);
+      window.open(`https://wa.me/${nomor}?text=${pesan}`, "_blank");
+    }
+  </script>
+</body>
+</html>

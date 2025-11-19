@@ -1,0 +1,203 @@
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #0f2027;
+  color: #f1f1f1;
+}
+
+header {
+  background: #132d35;
+  padding: 15px 0;
+}
+
+header .container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  color: #ffd166;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #f1f1f1;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: #06d6a0;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 10%;
+  background: linear-gradient(to right, #132d35, #184850);
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  max-width: 500px;
+}
+
+.hero h2 {
+  font-size: 2.5em;
+  color: #ffd166;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #06d6a0;
+  color: #000;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+.hero-image img {
+  border-radius: 12px;
+  max-width: 400px;
+  width: 100%;
+}
+
+section {
+  padding: 60px 10%;
+}
+
+h2 {
+  color: #ffd166;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.grid-6 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  text-align: center;
+}
+
+.adv-item {
+  background: #184850;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  background: #184850;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.testi-card {
+  background: #184850;
+  padding: 20px;
+  border-radius: 10px;
+  font-style: italic;
+}
+
+footer {
+  background: #132d35;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+}
+/* Nilai Inti Kami - styles */
+.values-section {
+  padding: 60px 10%;
+  background: transparent;
+}
+
+.values-section .section-title {
+  text-align: center;
+  color: #ffd166;
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.value-card {
+  background: #15393f; /* sedikit lebih gelap dari container */
+  border-radius: 12px;
+  padding: 20px;
+  color: #eef6f7;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  transition: transform .18s ease, box-shadow .18s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 160px;
+}
+
+.value-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+}
+
+.value-icon {
+  font-size: 28px;
+  width: 52px;
+  height: 52px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffd166;
+}
+
+.value-title {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #ffd166;
+}
+
+.value-desc {
+  margin: 0;
+  color: #dceff0;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+/* Small screens */
+@media (max-width: 680px) {
+  .values-section { padding: 40px 6%; }
+  .value-card { min-height: auto; padding: 16px; }
+  .value-icon { width:44px; height:44px; font-size:22px; }
+}
